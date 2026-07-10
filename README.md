@@ -71,25 +71,25 @@ or to adjust the clock's time/date format.
 ```
 src/
   components/
-    AlbumArt.jsx        Rotating, glowing album cover with crossfade
-    Background.jsx       Full-screen blurred artwork/gradient fallback
-    Clock.jsx             Live local time, date & timezone
-    CursorGlow.jsx        Pointer-following ambient glow (extra)
-    Equalizer.jsx          CSS-only animated equalizer bars
-    Header.jsx             Title, username, clock, settings entry point
-    LoadingSkeleton.jsx    Shimmering placeholder while data loads
-    MusicCard.jsx          The main card: track info, states, actions
-    ParticleField.jsx      Floating ambient particles (extra)
-    SettingsModal.jsx      Username entry/change modal
-    StatusBadge.jsx        "Now playing" / "Last played …" pill
+    AlbumArt.jsx            Rotating, glowing album cover with crossfade
+    Background.jsx          Full-screen blurred artwork/gradient fallback
+    Clock.jsx               Live local time, date & timezone
+    CursorGlow.jsx          Pointer-following ambient glow (extra)
+    Equalizer.jsx           CSS-only animated equalizer bars
+    Header.jsx              Title, username, clock, settings entry point
+    LoadingSkeleton.jsx     Shimmering placeholder while data loads
+    MusicCard.jsx           The main card: track info, states, actions
+    ParticleField.jsx       Floating ambient particles (extra)
+    SettingsModal.jsx       Username entry/change modal
+    StatusBadge.jsx         "Now playing" / "Last played …" pill
     Toast.jsx               Toast notification stack (extra)
   hooks/
-    useClock.js            1-second ticking clock hook
+    useClock.js             1-second ticking clock hook
     useLastFM.js            Polls Last.fm every 10s, normalizes + caches
     useLocalStorage.js      useState synced with localStorage
   utils/
     color.js                ColorThief palette extraction + color helpers
-    time.js                  Relative time, clock & duration formatting
+    time.js                 Relative time, clock & duration formatting
   App.jsx
   main.jsx
   index.css
