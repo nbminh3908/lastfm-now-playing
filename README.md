@@ -1,8 +1,4 @@
-# Now Playing · Last.fm Dashboard
-
-A Spotify/Apple Music-inspired "Now Playing" dashboard powered entirely by the
-[Last.fm API](https://www.last.fm/api). No backend, no database — just your
-Last.fm username and a free API key.
+# Last.fm Now Playing
 
 ![tech](https://img.shields.io/badge/React-19-149eca) ![tech](https://img.shields.io/badge/Vite-6-646cff) ![tech](https://img.shields.io/badge/Tailwind-3-38bdf8) ![tech](https://img.shields.io/badge/Framer_Motion-11-e10a8e)
 
