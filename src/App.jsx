@@ -45,12 +45,10 @@ function App() {
     setToasts((prev) => prev.filter((t) => t.id !== id))
   }, [])
 
-  // Open settings automatically on first run, when no username is stored yet.
   useEffect(() => {
     if (!username) setSettingsOpen(true)
   }, [username])
 
-  // Extract a dynamic accent palette from the current track's artwork.
   useEffect(() => {
     if (!track?.image) {
       setAccent(DEFAULT_ACCENT)
@@ -64,9 +62,6 @@ function App() {
       if (cancelled) return
       const secondary = palette[1] || adjustLightness(dominant, 0.35)
       const tertiary = palette[2] || adjustLightness(dominant, -0.3)
-      // A slightly lightened variant of the dominant color, used for the
-      // artist name so it stays legible and a bit brighter than the raw
-      // extracted swatch on dark artwork.
       const artistTone = adjustLightness(dominant, 0.22)
       setAccent({
         hex: rgbToHex(dominant),
@@ -106,8 +101,6 @@ function App() {
     refresh()
   }, [refresh])
 
-  // Surface fetch errors as toasts too, so they're noticeable even if the
-  // person isn't looking directly at the card (e.g. tab in the background).
   const lastErrorType = useRef(null)
   useEffect(() => {
     if (status === 'error' && error && error.type !== lastErrorType.current) {
@@ -146,9 +139,6 @@ function App() {
           onOpenSettings={() => setSettingsOpen(true)}
         />
 
-        <p className="text-center text-xs text-white/30 mt-5">
-          Auto-refreshes every 10 seconds
-        </p>
       </motion.main>
 
       <SettingsModal
@@ -167,8 +157,6 @@ function App() {
   )
 }
 
-// Small helper kept local to App: builds a translucent version of a hex
-// accent color for the cursor glow without a full color-parsing dependency.
 function rgbToRgba_safe(hex) {
   const clean = hex.replace('#', '')
   const bigint = parseInt(clean, 16)
