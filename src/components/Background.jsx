@@ -1,12 +1,6 @@
 import { memo } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-/**
- * Full-screen backdrop. Uses the current track's artwork, heavily blurred
- * and darkened, with a crossfade + slow zoom whenever the artwork changes.
- * Falls back to an animated gradient (with soft floating blobs) when there
- * is no artwork to show.
- */
 function Background({ imageUrl, accentA, accentB }) {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden bg-base-950">
@@ -56,7 +50,6 @@ function Background({ imageUrl, accentA, accentB }) {
         )}
       </AnimatePresence>
 
-      {/* Darkening overlay to keep foreground text/artwork readable */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/60 to-black/85" />
     </div>
   )
