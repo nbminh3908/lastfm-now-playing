@@ -2,6 +2,11 @@ import { memo } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Music2 } from 'lucide-react'
 
+/**
+ * The album cover. Fades/scales in on change, casts a soft accent-colored
+ * glow, and spins slowly while the track is actively playing (pausing
+ * in-place, rather than snapping back, when playback stops).
+ */
 function AlbumArt({ src, alt, isPlaying, accentGlow, size = 220 }) {
   return (
     <div
@@ -9,6 +14,7 @@ function AlbumArt({ src, alt, isPlaying, accentGlow, size = 220 }) {
       style={{ width: size, height: size }}
       aria-hidden={false}
     >
+      {/* Ambient glow behind the artwork, tinted with the extracted accent color */}
       <div
         className="absolute -inset-4 rounded-full blur-2xl transition-colors duration-700"
         style={{ backgroundColor: accentGlow, opacity: 0.55 }}
