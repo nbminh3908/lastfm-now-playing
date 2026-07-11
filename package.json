@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "A Spotify-inspired 'Now Playing' dashboard powered by the Last.fm API.",
+  "description": "A modern Last.fm now playing app built with React & Vite.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
