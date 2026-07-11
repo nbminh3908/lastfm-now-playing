@@ -73,7 +73,6 @@ src/
     Background.jsx          Full-screen blurred artwork/gradient fallback
     Clock.jsx               Live local time, date & timezone
     CursorGlow.jsx          Pointer-following ambient glow (extra)
-    Equalizer.jsx           CSS-only animated equalizer bars
     Header.jsx              Title, username, clock, settings entry point
     LoadingSkeleton.jsx     Shimmering placeholder while data loads
     MusicCard.jsx           The main card: track info, states, actions
