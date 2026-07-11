@@ -112,7 +112,7 @@ function SettingsModal({
               value={value}
               onChange={(e) => setValue(e.target.value)}
               onBlur={() => setTouched(true)}
-              placeholder="e.g. rj"
+              placeholder="e.g. Baooo_"
               autoComplete="off"
               spellCheck="false"
               className="w-full rounded-xl bg-white/5 border border-white/15 px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-accent-soft focus:ring-2 focus:ring-accent/40 transition-all font-body"
