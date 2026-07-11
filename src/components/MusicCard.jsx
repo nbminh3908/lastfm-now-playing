@@ -12,7 +12,6 @@ import {
   AlertTriangle,
 } from 'lucide-react'
 import AlbumArt from './AlbumArt'
-import Equalizer from './Equalizer'
 import StatusBadge from './StatusBadge'
 import LoadingSkeleton from './LoadingSkeleton'
 import { formatRelativeTime, formatDuration } from '../utils/time'
@@ -186,9 +185,6 @@ function MusicCard({
                   accentColor={accent.hex}
                   accentGlow={accent.glow}
                 />
-                {track.nowPlaying && (
-                  <Equalizer isPlaying color={accent.hex} />
-                )}
                 {track.loved && (
                   <span
                     className="inline-flex items-center gap-1 text-xs text-loved"

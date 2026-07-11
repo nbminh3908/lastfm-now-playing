@@ -12,7 +12,7 @@ function Header({ username, onOpenSettings, onCopyLink, timeFormat, dateFormat }
       initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="flex items-center justify-between gap-3 mb-5 px-1 flex-wrap"
+      className="flex items-center justify-between gap-2 mb-5 sm:gap-3"
     >
       <div className="flex items-center gap-3 min-w-0">
         <div className="flex items-center justify-center w-10 h-10 rounded-2xl glass-panel shrink-0">
@@ -41,7 +41,7 @@ function Header({ username, onOpenSettings, onCopyLink, timeFormat, dateFormat }
         </div>
       </div>
 
-      <div className="flex items-center gap-3 sm:gap-5">
+      <div className="flex items-center gap-2 sm:gap-5">
         <Clock timeFormat={timeFormat} dateFormat={dateFormat} />
         <button
           type="button"
