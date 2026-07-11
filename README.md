@@ -71,7 +71,7 @@ or to adjust the clock's time/date format.
 ```
 src/
   components/
-    AlbumArt.jsx            Rotating, glowing album cover with crossfade
+    AlbumArt.jsx            Glowing album cover with crossfade
     Background.jsx          Full-screen blurred artwork/gradient fallback
     Clock.jsx               Live local time, date & timezone
     CursorGlow.jsx          Pointer-following ambient glow (extra)
