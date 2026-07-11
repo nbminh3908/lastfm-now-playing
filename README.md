@@ -12,8 +12,6 @@
 - **Full-bleed animated background** - the current artwork, heavily blurred
   and darkened, crossfades and slowly zooms as tracks change. Falls back to
   an animated gradient with floating blobs when there's no artwork.
-- **CSS equalizer** - animated bars appear whenever a track is actively
-  playing, built with pure CSS keyframes (no GIFs).
 - **Live local clock** - time, date, and auto-detected timezone, ticking
   every second. Format is configurable from Settings: 12h/24h time, and
   long/short/DD-MM-YYYY/MM-DD-YYYY dates - saved to `localStorage`.
