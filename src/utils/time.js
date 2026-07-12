@@ -29,7 +29,7 @@ export function formatClockDate(date, format = 'long') {
   if (format === 'dmy') return date.toLocaleDateString('en-GB', DATE_FORMAT_OPTIONS.dmy)
   if (format === 'mdy') return date.toLocaleDateString('en-US', DATE_FORMAT_OPTIONS.mdy)
   const opts = DATE_FORMAT_OPTIONS[format] || DATE_FORMAT_OPTIONS.long
-  return date.toLocaleDateString(undefined, opts)
+  return date.toLocaleDateString('en-US', opts)
 }
 
 /**
