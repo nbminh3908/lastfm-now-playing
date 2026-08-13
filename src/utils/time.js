@@ -32,42 +32,6 @@ export function formatClockDate(date, format = 'long') {
   return date.toLocaleDateString('en-US', opts)
 }
 
-/**
- * Resolves the short timezone abbreviation/offset for the viewer's locale,
- * e.g. "GMT+7" or "PDT", depending on what the browser can resolve.
- */
-export function getTimezoneAbbreviation(date) {
-  try {
-    const parts = new Intl.DateTimeFormat(undefined, {
-      timeZoneName: 'shortOffset',
-    }).formatToParts(date)
-    const zonePart = parts.find((p) => p.type === 'timeZoneName')
-    if (zonePart) return zonePart.value
-  } catch (err) {
-    // shortOffset isn't supported everywhere; fall through to 'short'
-  }
-  try {
-    const parts = new Intl.DateTimeFormat(undefined, {
-      timeZoneName: 'short',
-    }).formatToParts(date)
-    const zonePart = parts.find((p) => p.type === 'timeZoneName')
-    if (zonePart) return zonePart.value
-  } catch (err) {
-    return ''
-  }
-  return ''
-}
-
-/**
- * Returns the IANA timezone name, e.g. "Asia/Ho_Chi_Minh".
- */
-export function getTimezoneName() {
-  try {
-    return Intl.DateTimeFormat().resolvedOptions().timeZone
-  } catch (err) {
-    return ''
-  }
-}
 
 /**
  * Converts a unix timestamp (seconds) into a friendly relative string,

@@ -12,8 +12,8 @@
 - **Full-bleed animated background** - the current artwork, heavily blurred
   and darkened, crossfades and slowly zooms as tracks change. Falls back to
   an animated gradient with floating blobs when there's no artwork.
-- **Live local clock** - time, date, and auto-detected timezone, ticking
-  every second. Format is configurable from Settings: 12h/24h time, and
+- **Live local clock** - time and date, ticking every second. Format is
+  configurable from Settings: 12h/24h time, and
   long/short/DD-MM-YYYY/MM-DD-YYYY dates - saved to `localStorage`.
 - **Robust error handling** - invalid usernames, missing scrobbles, expired
   API keys, rate limits, server errors, and offline states all get their own
@@ -71,7 +71,7 @@ src/
   components/
     AlbumArt.jsx            Glowing album cover with crossfade
     Background.jsx          Full-screen blurred artwork/gradient fallback
-    Clock.jsx               Live local time, date & timezone
+    Clock.jsx               Live local time and date
     Header.jsx              Title, username, clock, settings entry point
     LoadingSkeleton.jsx     Shimmering placeholder while data loads
     MusicCard.jsx           The main card: track info, states, actions
