@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { Github } from 'lucide-react'
 import Background from './components/Background'
 import ParticleField from './components/ParticleField'
 import Header from './components/Header'
@@ -150,6 +151,16 @@ function App() {
         onDateFormatChange={setDateFormat}
       />
 
+      <a
+        href="https://github.com/nbminh3908/lastfm-now-playing"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="View source code on GitHub"
+        title="View source code on GitHub"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 grid h-11 w-11 place-items-center rounded-full glass-panel text-white/60 transition-colors duration-200 hover:text-white hover:bg-white/10 focus-visible:text-white"
+      >
+        <Github size={21} strokeWidth={1.8} aria-hidden="true" />
+      </a>
       <ToastStack toasts={toasts} onDismiss={dismissToast} />
     </div>
   )
