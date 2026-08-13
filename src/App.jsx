@@ -127,6 +127,7 @@ function App() {
           onCopyLink={handleCopyLink}
           timeFormat={timeFormat}
           dateFormat={dateFormat}
+          accentColor={accent.hex}
         />
 
         <MusicCard

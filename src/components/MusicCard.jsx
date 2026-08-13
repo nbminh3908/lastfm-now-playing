@@ -97,7 +97,7 @@ function MusicCard({
   onRefresh,
   onOpenSettings,
 }) {
-  const [isRefreshing, setIsRefreshing] = useState(false)
+  const [refreshAnimationKey, setRefreshAnimationKey] = useState(0)
   const [elapsed, setElapsed] = useState(0)
   const listenStart = useRef(null)
   const currentKey = useRef(null)
@@ -126,9 +126,8 @@ function MusicCard({
   }, [track?.key, track?.nowPlaying])
 
   const handleRefresh = useCallback(() => {
-    setIsRefreshing(true)
+    setRefreshAnimationKey((key) => key + 1)
     onRefresh()
-    setTimeout(() => setIsRefreshing(false), 700)
   }, [onRefresh])
 
   const showSkeleton = status === 'loading' && !track
@@ -237,8 +236,9 @@ function MusicCard({
                   className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/15 text-white transition-colors"
                 >
                   <RefreshCw
+                    key={refreshAnimationKey}
                     size={16}
-                    className={isRefreshing ? 'animate-spin' : ''}
+                    className={refreshAnimationKey ? 'animate-[spin_600ms_ease-in-out_1]' : ''}
                     aria-hidden="true"
                   />
                 </button>

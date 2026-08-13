@@ -6,7 +6,7 @@ import Clock from './Clock'
  * Top bar: app identity + the connected username on the left,
  * the live clock and a settings button on the right.
  */
-function Header({ username, onOpenSettings, onCopyLink, timeFormat, dateFormat }) {
+function Header({ username, onOpenSettings, onCopyLink, timeFormat, dateFormat, accentColor }) {
   return (
     <motion.header
       initial={{ opacity: 0, y: -16 }}
@@ -16,7 +16,12 @@ function Header({ username, onOpenSettings, onCopyLink, timeFormat, dateFormat }
     >
       <div className="flex items-center gap-3 min-w-0">
         <div className="flex items-center justify-center w-10 h-10 rounded-2xl glass-panel shrink-0">
-          <Disc3 size={20} className="text-accent-soft animate-spin-slow" aria-hidden="true" />
+          <Disc3
+            size={20}
+            className="animate-spin-slow transition-colors duration-500"
+            style={{ color: accentColor }}
+            aria-hidden="true"
+          />
         </div>
         <div className="min-w-0">
           <h1 className="font-display text-lg sm:text-xl font-semibold text-white tracking-tight">
