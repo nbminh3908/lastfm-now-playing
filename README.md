@@ -18,7 +18,7 @@
 - **Robust error handling** - invalid usernames, missing scrobbles, expired
   API keys, rate limits, server errors, and offline states all get their own
   friendly message and retry action.
-- **Nice extras** - floating particles, a cursor glow, toast notifications,
+- **Nice extras** - floating particles, toast notifications,
   a "copy profile link" button, a rotating album cover that pauses in place,
   a dynamically brightened artist-name color derived from the cover art,
   visible focus rings, and full `prefers-reduced-motion` support.
@@ -72,7 +72,6 @@ src/
     AlbumArt.jsx            Glowing album cover with crossfade
     Background.jsx          Full-screen blurred artwork/gradient fallback
     Clock.jsx               Live local time, date & timezone
-    CursorGlow.jsx          Pointer-following ambient glow (extra)
     Header.jsx              Title, username, clock, settings entry point
     LoadingSkeleton.jsx     Shimmering placeholder while data loads
     MusicCard.jsx           The main card: track info, states, actions

@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion } from 'framer-motion'
 import Background from './components/Background'
 import ParticleField from './components/ParticleField'
-import CursorGlow from './components/CursorGlow'
 import Header from './components/Header'
 import MusicCard from './components/MusicCard'
 import SettingsModal from './components/SettingsModal'
@@ -114,7 +113,6 @@ function App() {
     <div className="relative min-h-screen w-full flex items-center justify-center p-4 sm:p-8 bg-noise">
       <Background imageUrl={track?.image} accentA={accent.hexA} accentB={accent.hexB} />
       <ParticleField accentColor={accent.hex} />
-      <CursorGlow color={rgbToRgba_safe(accent.hex)} />
 
       <motion.main
         initial={{ opacity: 0, y: 24 }}
@@ -155,15 +153,6 @@ function App() {
       <ToastStack toasts={toasts} onDismiss={dismissToast} />
     </div>
   )
-}
-
-function rgbToRgba_safe(hex) {
-  const clean = hex.replace('#', '')
-  const bigint = parseInt(clean, 16)
-  const r = (bigint >> 16) & 255
-  const g = (bigint >> 8) & 255
-  const b = bigint & 255
-  return `rgba(${r}, ${g}, ${b}, 0.18)`
 }
 
 export default App
