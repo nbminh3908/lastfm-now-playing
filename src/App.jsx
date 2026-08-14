@@ -9,7 +9,14 @@ import SettingsModal from './components/SettingsModal'
 import ToastStack from './components/Toast'
 import { useLocalStorage } from './hooks/useLocalStorage'
 import { useLastFM } from './hooks/useLastFM'
-import { extractPalette, rgbToHex, rgbToRgba, adjustLightness } from './utils/color'
+import {
+  extractPalette,
+  rgbToHex,
+  rgbToRgba,
+  adjustLightness,
+  ensureContrastOnDark,
+  getReadableTextColor,
+} from './utils/color'
 
 const DEFAULT_ACCENT = {
   hex: '#7c5cfc',
@@ -18,6 +25,7 @@ const DEFAULT_ACCENT = {
   hexC: '#5d3fd6',
   artist: '#a999fd',
   glow: 'rgba(124, 92, 252, 0.55)',
+  text: '#f5f5f7',
 }
 
 let toastId = 0
@@ -62,14 +70,16 @@ function App() {
       if (cancelled) return
       const secondary = palette[1] || adjustLightness(dominant, 0.35)
       const tertiary = palette[2] || adjustLightness(dominant, -0.3)
-      const artistTone = adjustLightness(dominant, 0.22)
+      const displayAccent = ensureContrastOnDark(dominant)
+      const artistTone = ensureContrastOnDark(adjustLightness(dominant, 0.22))
       setAccent({
-        hex: rgbToHex(dominant),
+        hex: rgbToHex(displayAccent),
         hexA: rgbToHex(dominant),
         hexB: rgbToHex(secondary),
         hexC: rgbToHex(tertiary),
         artist: rgbToHex(artistTone),
-        glow: rgbToRgba(dominant, 0.55),
+        glow: rgbToRgba(displayAccent, 0.55),
+        text: getReadableTextColor(displayAccent),
       })
     })
     return () => {

@@ -223,7 +223,11 @@ function MusicCard({
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-white transition-colors shadow-glow"
-                    style={{ backgroundColor: accent.hex, '--accent-glow': accent.glow }}
+                    style={{
+                      backgroundColor: accent.hex,
+                      color: accent.text,
+                      '--accent-glow': accent.glow,
+                    }}
                   >
                     Open on Last.fm
                     <ExternalLink size={15} aria-hidden="true" />

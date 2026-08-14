@@ -42,6 +42,40 @@ export function adjustLightness([r, g, b], amount) {
 }
 
 /**
+ * Lightens a color only as much as needed to remain readable on the app background.
+ * This preserves the artwork hue while preventing near-black accents from disappearing.
+ */
+export function ensureContrastOnDark(color, minContrast = 4.5, background = [8, 8, 10]) {
+  const relativeLuminance = ([r, g, b]) => {
+    const linear = [r, g, b].map((channel) => {
+      const value = channel / 255
+      return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4
+    })
+    return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2]
+  }
+
+  const backgroundLuminance = relativeLuminance(background)
+  const contrast = (candidate) =>
+    (relativeLuminance(candidate) + 0.05) / (backgroundLuminance + 0.05)
+
+  if (contrast(color) >= minContrast) return color
+
+  let low = 0
+  let high = 1
+  let readable = color
+  for (let i = 0; i < 10; i += 1) {
+    const amount = (low + high) / 2
+    const candidate = adjustLightness(color, amount)
+    if (contrast(candidate) >= minContrast) {
+      readable = candidate
+      high = amount
+    } else {
+      low = amount
+    }
+  }
+  return readable
+}
+/**
  * Given an [r,g,b], returns whether black or white text would read better on top of it.
  */
 export function getReadableTextColor([r, g, b]) {
